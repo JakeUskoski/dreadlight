@@ -60,7 +60,8 @@ inv_group.add_argument('-u', '--unequip', metavar='"item"', nargs=1, help='''
                         Enter either the position in the inventory or the full name of the item to unequip.
                         ''')
 
-if __name__ == '__main__':
+
+def main():
     args = vars(parser.parse_args())
     print(args)
     if args['command'] == 'inv':
@@ -87,3 +88,7 @@ if __name__ == '__main__':
             shop_display.shop_sell(args['sell'])
         elif args['compare'] is not None:
             shop_display.shop_compare(args['compare'][0], args['compare'][1])
+
+
+if __name__ == '__main__':
+    main()
