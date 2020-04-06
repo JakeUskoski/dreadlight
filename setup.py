@@ -11,7 +11,7 @@ setuptools.setup(
     description="A terminal-based moddable RPG",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/juskoski/",
+    url="https://github.com/JakeUskoski/dreadlight",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
