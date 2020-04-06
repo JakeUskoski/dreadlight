@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="gladiator-jake-uskoski",  # Replace with your own username
+    name="dreadlight",  # Replace with your own username
     version="0.1.0",
     author="Jake Uskoski",
     author_email="jake@uskoski.ca",
