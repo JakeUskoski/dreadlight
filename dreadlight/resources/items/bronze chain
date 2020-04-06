@@ -1,0 +1,1 @@
+{"name":"Bronze Chain","description":"It's getting pretty rusty these days.","attributes":[{"attribute":"Attribute.CRITICAL_RATE","value":5}],"requirements":[],"item_types":["ItemType.EQUIPMENT"],"equipment_type":"EquipmentType.NECKLACE","equipment_subtype":"EquipmentSubType.ACCESSORY"}

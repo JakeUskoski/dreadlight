@@ -1,0 +1,1 @@
+{"name":"Harry's Wand","description":"You're a wizard.","attributes":[{"attribute":"Attribute.MAGIC_DAMAGE","value":45}],"requirements":[{"stat":"Stat.BLESSINGS","value":10}],"item_types":["ItemType.EQUIPMENT"],"equipment_type":"EquipmentType.WEAPON","equipment_subtype":"EquipmentSubType.SUPPORTIVE"}

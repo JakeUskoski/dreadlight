@@ -1,0 +1,1 @@
+{"name":"Short Sword","description":"It's a sword.","attributes":[{"attribute":"Attribute.ATTACK_DAMAGE","value":36}],"requirements":[{"stat":"Stat.STRENGTH","value":10}],"item_types":["ItemType.EQUIPMENT"],"equipment_type":"EquipmentType.WEAPON","equipment_subtype":"EquipmentSubType.OFFENSIVE"}

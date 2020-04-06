@@ -1,0 +1,1 @@
+{"name":"Cloth Boots","description":"Better than nothing.","attributes":[{"attribute":"Attribute.HEALTH","value":5},{"attribute":"Attribute.DODGE_RATE","value":1}],"requirements":[],"item_types":["ItemType.EQUIPMENT"],"equipment_type":"EquipmentType.FEET"}

@@ -1,0 +1,1 @@
+{"name":"Plain Ring","description":"Simplicity is elegance.","attributes":[{"attribute":"Attribute.STAMINA","value":5}],"requirements":[],"item_types":["ItemType.EQUIPMENT","ItemType.PRECIOUS"],"equipment_type":"EquipmentType.RING","equipment_subtype":"EquipmentSubType.ACCESSORY"}

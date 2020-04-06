@@ -1,0 +1,1 @@
+{"name":"Tree Branch","description":"You have to make do with what nature provides.","attributes":[{"attribute":"Attribute.ATTACK_DAMAGE","value":14}],"requirements":[],"item_types":["ItemType.EQUIPMENT"],"equipment_type":"EquipmentType.WEAPON","equipment_subtype":"EquipmentSubType.OFFENSIVE"}

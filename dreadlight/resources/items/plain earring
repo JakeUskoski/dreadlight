@@ -1,0 +1,1 @@
+{"name":"Plain Earring","description":"Simplicity is elegance.","attributes":[{"attribute":"Attribute.EXP_RATE","value":2}],"requirements":[],"item_types":["ItemType.EQUIPMENT","ItemType.PRECIOUS"],"equipment_type":"EquipmentType.RING","equipment_subtype":"EquipmentSubType.ACCESSORY"}

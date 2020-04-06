@@ -1,0 +1,1 @@
+{"name":"Wooden Shield","description":"It's a shield.","attributes":[{"attribute":"Attribute.ATTACK_RESISTANCE","value":2},{"attribute":"Attribute.SKILL_RESISTANCE","value":1}],"requirements":[{"stat":"Stat.STRENGTH","value":7}],"item_types":["ItemType.EQUIPMENT"],"equipment_type":"EquipmentType.WEAPON","equipment_subtype":"EquipmentSubType.DEFENSIVE"}

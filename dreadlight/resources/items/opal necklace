@@ -1,0 +1,1 @@
+{"name":"Opal Necklace","description":"Quite the jewel.","attributes":[{"attribute":"Attribute.MANA","value":10},{"attribute":"Attribute.MAGIC_DAMAGE","value":10}],"requirements":[],"item_types":["ItemType.EQUIPMENT","ItemType.PRECIOUS"],"equipment_type":"EquipmentType.NECKLACE","equipment_subtype":"EquipmentSubType.ACCESSORY"}
