@@ -1,11 +1,13 @@
+import os
+
 import setuptools
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="dreadlight",  # Replace with your own username
-    version="0.1.5",
+    name="dreadlight",
+    version="0.1.6",
     author="Jake Uskoski",
     author_email="jake@uskoski.ca",
     description="A terminal-based moddable RPG",

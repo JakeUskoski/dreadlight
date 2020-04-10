@@ -2,15 +2,14 @@
 
 import argparse
 
-import pkg_resources  # part of setuptools
-
 from dreadlight.data import paths
 from dreadlight.displays import inv_display, shop_display
 from dreadlight.plugins import items, classes, shops
 
-version = pkg_resources.require("dreadlight")[0].version
+__version__ = '0.1.6'
+
 parser = argparse.ArgumentParser(prog='Dreadlight', description='A terminal-based background RPG to procrastinate with')
-parser.add_argument('-v', '--version', action='version', version='%(prog)s ' + version)
+parser.add_argument('-v', '--version', action='version', version='%(prog)s ' + __version__)
 parser.add_argument('-r', '--reset', action='store_true', help='Resets & prepares all files for a new game.')
 
 subparsers = parser.add_subparsers(help='activities', dest='command')
