@@ -1,4 +1,5 @@
 import os
+import shutil
 
 from dreadlight.common import utils
 from dreadlight.data import paths
@@ -6,9 +7,15 @@ from dreadlight.data import paths
 
 def __remove(directory, filename):
     full_path = os.path.join(directory, filename)
-    if not os.path.exists(full_path):
-        return
-    os.remove(full_path)
+    try:
+        if not os.path.exists(full_path):
+            return
+        elif os.path.isfile(full_path):
+            os.remove(full_path)
+        else:
+            shutil.rmtree(full_path)
+    except OSError as e:
+        print("Error: %s : %s" % (full_path, e.strerror))
 
 
 def inventory():
