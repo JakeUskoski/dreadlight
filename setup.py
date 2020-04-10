@@ -23,8 +23,8 @@ setuptools.setup(
     python_requires='>=3.6',
     entry_points={
         "console_scripts": [
-            "dreadlight = dreadlight:__main__",
-            "dl = dreadlight:__main__"
+            "dreadlight = dreadlight.__main__:main",
+            "dl = dreadlight.__main__:main"
         ]
     },
 )
