@@ -1,4 +1,3 @@
-import string
 from functools import reduce
 
 from dreadlight.common import utils
@@ -14,10 +13,10 @@ def shop_list():
     coin_purse = loader.load_purse()
 
     print()
-    print(string.ascii_uppercase(shop.store_owner) + "'S SHOP")
+    print(shop.store_owner.upper() + "'S SHOP")
     print(LINE_BREAK)
     print('Accepted currency: ' + shop.currency)
-    print('You currently have: ' + coin_purse.get_currency(shop.currency) + ' ' + shop.currency)
+    print('You currently have: ' + str(coin_purse.get_currency(shop.currency)) + ' ' + shop.currency)
     print()
     print('ITEMS FOR SALE')
     print(LINE_BREAK)
@@ -35,7 +34,8 @@ def shop_list():
     print()
     print('CURRENT EQUIPMENT')
     print(LINE_BREAK)
-    inventory_items = __append_count_to_item_list(inventory.get_equipment(), len(goods) + len(wants))
+    inventory_items = __append_count_to_item_list(map(lambda inv_item: inv_item.item, inventory.get_equipment()),
+                                                  len(goods) + len(wants))
     if len(inventory_items) > 0:
         print_list(inventory_items)
     else:
@@ -165,7 +165,7 @@ def __construct_cost_list(shop, starting_index=0):
     index = starting_index
     for item in items:
         index += 1
-        cost_list.append(str(index) + '. ' + item + ' (' + shop.get_item_for_sale_cost(item) + ')')
+        cost_list.append(str(index) + '. ' + item + ' (' + str(shop.get_item_for_sale_cost(item)) + ')')
     return cost_list
 
 
@@ -175,7 +175,7 @@ def __construct_purchase_list(shop, starting_index=0):
     index = starting_index
     for item in items:
         index += 1
-        cost_list.append(str(index) + '. ' + item + ' (' + shop.get_item_for_purchase_cost(item) + ')')
+        cost_list.append(str(index) + '. ' + item + ' (' + str(shop.get_item_for_purchase_cost(item)) + ')')
     return cost_list
 
 

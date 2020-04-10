@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="dreadlight",
-    version="0.1.9",
+    version="0.1.10",
     author="Jake Uskoski",
     author_email="jake@uskoski.ca",
     description="A terminal-based moddable RPG",

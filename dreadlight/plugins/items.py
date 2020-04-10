@@ -1,6 +1,6 @@
 from dreadlight.common.item import Item, ItemType, EquipmentType, EquipmentSubType
 from dreadlight.common.stat import Attribute, Stat
-from dreadlight.data import store, reset
+from dreadlight.data import store, reset, paths
 from dreadlight.player import inventory
 from dreadlight.player.purse import Purse
 
@@ -226,10 +226,15 @@ def initialize():
     all_items = []
     all_items.extend(get_weapons())
     all_items.extend(get_shields())
-    all_items.extend(get_armour())
+    armour = get_armour()
+    all_items.extend(armour)
     all_items.extend(get_accessories())
+
     for item in all_items:
         store.store_item(item)
-    inventory.add_items(get_armour())
-    some_purse = Purse()
-    some_purse.gain_currency('Shuckles', 300)
+
+    inventory.add_items(armour)
+
+    purse = Purse()
+    purse.gain_currency('Shuckles', 300)
+    store.store_purse(purse)
