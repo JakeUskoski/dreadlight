@@ -1,15 +1,17 @@
 #!/usr/bin/env python
 
 import argparse
-import os
 
+import pkg_resources  # part of setuptools
+
+from dreadlight.data import paths
 from dreadlight.displays import inv_display, shop_display
+from dreadlight.plugins import items, classes, shops
 
-ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
-
-parser = argparse.ArgumentParser(prog='Gladiators', description='A terminal-based background RPG to procrastinate with')
-parser.add_argument('-v', '--verbose', action='store_true', help='show greater detail in output')
-parser.add_argument('--version', action='version', version='%(prog)s 2.0')
+version = pkg_resources.require("MyProject")[0].version
+parser = argparse.ArgumentParser(prog='Dreadlight', description='A terminal-based background RPG to procrastinate with')
+parser.add_argument('-v', '--version', action='version', version='%(prog)s ' + version)
+parser.add_argument('-r', '--reset', action='store_true', help='Resets & prepares all files for a new game.')
 
 subparsers = parser.add_subparsers(help='activities', dest='command')
 
@@ -63,8 +65,18 @@ inv_group.add_argument('-u', '--unequip', metavar='"item"', nargs=1, help='''
 
 def main():
     args = vars(parser.parse_args())
-    print(args)
-    if args['command'] == 'inv':
+    if args['reset'] is True:
+        # Deletion of all data
+        paths.prepare_paths()
+        items.reset_all()
+        classes.reset_all()
+        shops.reset_all()
+        # Initialization of starting data
+        paths.prepare_paths()
+        items.initialize()
+        classes.initialize()
+        shops.initialize()
+    elif args['command'] == 'inv':
         if args['list'] is True:
             inv_display.inv_list()
         elif args['details'] is not None:

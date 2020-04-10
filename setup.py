@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="dreadlight",  # Replace with your own username
-    version="0.1.3",
+    version="0.1.4",
     author="Jake Uskoski",
     author_email="jake@uskoski.ca",
     description="A terminal-based moddable RPG",
@@ -21,11 +21,8 @@ setuptools.setup(
     python_requires='>=3.6',
     entry_points={
         "console_scripts": [
-            "dreadlight = dreadlight",
-            "dl = dreadlight:main",
-            "dread = dreadlight:__main__",
-            "dreadl = dreadlight.dreadlight:main",
-            "drl = dreadlight.dreadlight:__main__"
+            "dreadlight = dreadlight:__main__",
+            "dl = dreadlight:__main__"
         ]
     },
 )

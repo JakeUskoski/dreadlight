@@ -1,6 +1,6 @@
 from dreadlight.common.playable_class import PlayableClass
 from dreadlight.common.stat import Stat
-from dreadlight.data import store
+from dreadlight.data import store, reset
 
 
 def get_classes():
@@ -135,6 +135,10 @@ def get_classes():
     return playable_classes
 
 
-if __name__ == '__main__':
+def reset_all():
+    reset.classes()
+
+
+def initialize():
     for __class in get_classes():
         store.store_class(__class)
