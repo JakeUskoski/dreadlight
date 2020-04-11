@@ -1,7 +1,8 @@
 from functools import reduce
 
 from dreadlight.common import utils
-from dreadlight.data import loader
+from dreadlight.common.item import Item, InventoryItem
+from dreadlight.data import loader, store
 from dreadlight.displays.commons import LINE_BREAK, print_list, print_item_details, print_item_comparison
 from dreadlight.player import inventory
 
@@ -95,7 +96,8 @@ def shop_buy(item_references):
         print('The sale will not proceed without all requested items found.')
         print()
     else:
-        total_cost = reduce(lambda item_name: shop.get_item_for_sale_cost(item_name), item_purchases)
+        total_cost = reduce(lambda x, y: x + y,
+                            map(lambda item_name: shop.get_item_for_sale_cost(item_name), item_purchases))
 
         player_currency = purse.get_currency(shop.currency)
         if total_cost > player_currency:
@@ -105,6 +107,7 @@ def shop_buy(item_references):
             items = map(lambda x: loader.load_item(x), item_purchases)
             inventory.add_items(items)
             purse.lose_currency(shop.currency, total_cost)
+            store.store_purse(purse)
             print("Items successfully purchased!")
             print()
 
@@ -126,14 +129,17 @@ def shop_sell(item_references):
     else:
         player_items, items_not_in_inventory = __remove_items_to_sell(inventory.get_inventory_contents(), item_sales)
 
-        if not items_not_in_inventory:
+        if items_not_in_inventory:
             print('The following items could not be found in your inventory:')
             print_list(__append_count_to_item_list(items_not_in_inventory))
         else:
-            total_cost = reduce(lambda item_name: shop.get_item_for_purchase_cost(item_name), item_sales)
+            total_cost = reduce(lambda x, y: x + y,
+                                map(lambda item_name: shop.get_item_for_purchase_cost(item_name), item_sales))
+
             inventory.__save_inventory(player_items)
             purse = loader.load_purse()
             purse.gain_currency(shop.currency, total_cost)
+            store.store_purse(purse)
 
             print("Items sold! You've received " + str(total_cost) + ' ' + shop.currency + '.')
 
@@ -142,8 +148,8 @@ def __remove_items_to_sell(player_inventory, items_to_sell):
     items_not_in_inventory = []
     for item in items_to_sell:
         position = None
-        for index in range(player_inventory):
-            if player_inventory[index].item.name == item:
+        for index in range(len(player_inventory)):
+            if utils.caseless_equal(player_inventory[index].item.name, item):
                 position = index
                 break
 
@@ -184,7 +190,16 @@ def __append_count_to_item_list(items, starting_index=0):
     index = starting_index
     for item in items:
         index += 1
-        counted_item_list.append(str(index) + '. ' + item.name)
+        item_name = None
+
+        if type(item) is str:
+            item_name = item
+        elif type(item) is type(Item):
+            item_name = item.name
+        elif type(item) is type(InventoryItem):
+            item_name = item.item.name
+
+        counted_item_list.append(str(index) + '. ' + item_name)
     return counted_item_list
 
 
