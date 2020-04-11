@@ -85,7 +85,7 @@ def shop_buy(item_references):
     purse = loader.load_purse()
 
     for item_reference in item_references:
-        item, item_from = __get_item_from_buy_list(shop, item_reference)
+        item = __get_item_from_buy_list(shop, item_reference)
         if not item:
             __item_not_found(item_reference)
         else:
@@ -114,7 +114,7 @@ def shop_sell(item_references):
     item_sales = []
 
     for item_reference in item_references:
-        item, item_from = __get_item_from_sell_list(shop, item_reference)
+        item = __get_item_from_sell_list(shop, item_reference)
         if not item:
             __item_not_found(item_reference)
         else:
