@@ -6,7 +6,7 @@ from dreadlight.data import paths
 from dreadlight.displays import inv_display, shop_display
 from dreadlight.plugins import items, classes, shops
 
-__version__ = '0.1.16'
+__version__ = '0.1.17'
 
 parser = argparse.ArgumentParser(prog='Dreadlight', description='A terminal-based background RPG to procrastinate with')
 parser.add_argument('-v', '--version', action='version', version='%(prog)s ' + __version__)
@@ -22,16 +22,16 @@ shop_group.add_argument('-b', '--buy', metavar='item', nargs='+', help='''
                         Enter either their positions in the shop or their full names.
                         ''')
 shop_group.add_argument('-s', '--sell', metavar='"item"', nargs='+', help='''
-                        Sell all items listed.
+                        Sell all items listed to the shop.
                         Enter either their positions in the shop or their full names.
                         ''')
 shop_group.add_argument('-d', '--details', metavar='"item"', nargs=1, help='''
-                        See details of an item in the stop.
+                        See details of an item in the shop.
                         Enter either a position in the shop (or equipment) or the full name of the item.
                         ''')
 shop_group.add_argument('-c', '--compare', metavar='"item"', nargs=2, help='''
-                        Compare an item in the stop with currently equipped gear.
-                        Enter either the positions in the shop (or equipment) or the full names of the items
+                        Compare items in the shop with one another or with equipped items.
+                        Enter either the positions in the shop (or equipment) or the full names of the items.
                         ''')
 
 inventory_parser = subparsers.add_parser('inv')
