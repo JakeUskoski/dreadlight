@@ -37,7 +37,7 @@ def load_all_classes():
 
 
 def load_item(item_name):
-    filename = os.path.join(paths.SAVE_DIR, utils.normalize_caseless(item_name))
+    filename = os.path.join(paths.ITEMS_DIR, utils.normalize_caseless(item_name))
     if not __check_file(filename):
         return None
     return Item.load_item(__load_dictionary(filename))

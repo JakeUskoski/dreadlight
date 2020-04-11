@@ -99,6 +99,11 @@ def print_item_details(inventory_item):
 
 
 def print_item_comparison(item, compared_item, item_equipped=False, compared_item_equipped=False):
+    if item_equipped:
+        item = item.item
+    if compared_item_equipped:
+        compared_item = compared_item.item
+
     compared_attributes = Attributes.compare_attributes(item.attributes, compared_item.attributes)
     compared_requirements = Stats.compare_stats(item.requirements, compared_item.requirements)
 

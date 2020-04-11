@@ -216,7 +216,7 @@ def __get_item_from_buy_list(shop, item_reference):
     sales_list_length = len(shop.get_items_for_sale_list())
 
     if utils.is_int(item_reference):
-        item_reference -= 1
+        item_reference = int(item_reference) - 1
         if sales_list_length > 0 and 0 <= item_reference < sales_list_length:
             item = shop.get_item_for_sale_at_index(item_reference)
     elif shop.get_item_for_sale_cost(item_reference):
@@ -232,7 +232,7 @@ def __get_item_from_sell_list(shop, item_reference):
     shop_length = sales_list_length + purchases_list_length
 
     if utils.is_int(item_reference):
-        item_reference -= 1
+        item_reference = int(item_reference) - 1
         if sales_list_length <= item_reference < shop_length:
             item = shop.get_item_for_purchase_at_index(item_reference - sales_list_length)
     elif shop.get_item_for_purchase_cost(item_reference):
@@ -247,7 +247,7 @@ def __get_item_from_inventory(shop, equipment, item_reference):
     equipment_list_length = len(equipment)
 
     if utils.is_int(item_reference):
-        item_reference -= 1
+        item_reference = int(item_reference) - 1
         if shop_length <= item_reference < equipment_list_length + shop_length:
             item = equipment[item_reference - shop_length]
     else:

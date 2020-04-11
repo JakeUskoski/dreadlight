@@ -1,8 +1,3 @@
-import json
-
-from dreadlight.data import store
-
-
 class Shop:
     def __init__(self, store_owner, currency):
         self.store_owner = store_owner
@@ -22,13 +17,13 @@ class Shop:
 
     def get_item_for_sale_at_index(self, index):
         items = self.get_items_for_sale_list()
-        if 0 < index < len(items):
+        if 0 <= index < len(items):
             return items[index]
 
     def get_item_for_sale_cost_by_index(self, index):
         index -= 1
         items = self.get_items_for_sale_list()
-        if 0 < index < len(items):
+        if 0 <= index < len(items):
             return self.get_item_for_sale_cost(items[index])
 
     def get_item_for_sale_cost(self, item_name):
@@ -42,13 +37,13 @@ class Shop:
 
     def get_item_for_purchase_at_index(self, index):
         items = self.get_items_for_purchase_list()
-        if 0 < index < len(items):
+        if 0 <= index < len(items):
             return items[index]
 
     def get_item_for_purchase_cost_by_index(self, index):
         index -= 1
         items = self.get_items_for_purchase_list()
-        if 0 < index < len(items):
+        if 0 <= index < len(items):
             return self.get_item_for_purchase_cost(items[index])
 
     def get_item_for_purchase_cost(self, item_name):
