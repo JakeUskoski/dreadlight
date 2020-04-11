@@ -69,7 +69,7 @@ def load_player():
 
 
 def load_shop(shop_owner):
-    filename = os.path.join(paths.SHOPS_DIR, shop_owner)
+    filename = os.path.join(paths.SHOPS_DIR, utils.normalize_caseless(shop_owner))
     if not __check_file(filename):
         return None
     return Shop.load_shop(__load_dictionary(filename))
