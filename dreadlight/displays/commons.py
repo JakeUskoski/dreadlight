@@ -74,11 +74,11 @@ def print_list(input_list):
 
 def print_item_details(inventory_item):
     item = None
-    if type(inventory_item) is type(InventoryItem):
+    if type(inventory_item) is InventoryItem:
         item = inventory_item.item
-    elif type(inventory_item) is type(Item):
+    elif type(inventory_item) is Item:
         item = inventory_item
-    elif type(inventory_item) is type(str):
+    elif type(inventory_item) is str:
         item = loader.load_item(inventory_item)
     print()
     print('DETAILS')
@@ -107,9 +107,9 @@ def print_item_details(inventory_item):
 
 
 def print_item_comparison(item, compared_item, item_equipped=False, compared_item_equipped=False):
-    if item_equipped or type(item) is type(InventoryItem):
+    if item_equipped or type(item) is InventoryItem:
         item = item.item
-    if compared_item_equipped or type(compared_item) is type(InventoryItem):
+    if compared_item_equipped or type(compared_item) is InventoryItem:
         compared_item = compared_item.item
 
     compared_attributes = Attributes.compare_attributes(item.attributes, compared_item.attributes)

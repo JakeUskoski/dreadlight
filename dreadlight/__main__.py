@@ -6,7 +6,7 @@ from dreadlight.data import paths
 from dreadlight.displays import inv_display, shop_display
 from dreadlight.plugins import items, classes, shops
 
-__version__ = '0.1.15'
+__version__ = '0.1.16'
 
 parser = argparse.ArgumentParser(prog='Dreadlight', description='A terminal-based background RPG to procrastinate with')
 parser.add_argument('-v', '--version', action='version', version='%(prog)s ' + __version__)

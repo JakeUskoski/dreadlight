@@ -194,9 +194,9 @@ def __append_count_to_item_list(items, starting_index=0):
 
         if type(item) is str:
             item_name = item
-        elif type(item) is type(Item):
+        elif type(item) is Item:
             item_name = item.name
-        elif type(item) is type(InventoryItem):
+        elif type(item) is InventoryItem:
             item_name = item.item.name
 
         counted_item_list.append(str(index) + '. ' + item_name)
